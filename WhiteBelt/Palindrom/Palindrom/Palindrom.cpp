@@ -12,12 +12,11 @@ int main()
     cout << boolalpha << IsPalindrom(word);
 }
 
-bool IsPalindrom(string value)
-{
-    if (value == "") {
-        return false;
+bool IsPalindrom(string value) {
+    for (int i = 0; i < value.size() / 2; i++) {
+        if (value[i] != value[value.size() - i - 1]) {
+            return false;
+        }
     }
-    string originalValue = value;
-    reverse(value.begin(), value.end());
-    return originalValue == value;
+    return true;
 }
